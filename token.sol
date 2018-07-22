@@ -237,7 +237,7 @@ contract ExMoneyToken is owned, TokenERC20 {
 
     /// @notice 买代币
     function buy() payable returns (uint amount){
-        amount = msg.vlaue / buyPrice;
+        amount = msg.value / buyPrice;
         require(balanceOf[this] >= amount);
         balanceOf[msg.sender] += amount;
         balanceOf[this] -= amount;
@@ -259,7 +259,7 @@ contract ExMoneyToken is owned, TokenERC20 {
 
     /// @notice 实现gas的自动补充
     /// @param minBalanceInFinney 余额阈值  1 finney = 0.001eth
-    fuction setMinBalance(uint minBalanceInFinney) onlyOwner public{
+    function setMinBalance(uint minBalanceInFinney) onlyOwner public{
         minBalanceForAccounts = minBalanceInFinney * 1 finney;
     }
 }
