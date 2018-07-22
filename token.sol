@@ -241,7 +241,7 @@ contract ExMoneyToken is owned, TokenERC20 {
         require(balanceOf[this] >= amount);
         balanceOf[msg.sender] += amount;
         balanceOf[this] -= amount;
-        _transfer(this.msg.sender,amount);
+        _transfer(this,msg.sender,amount);
         return amount;
     }
 
